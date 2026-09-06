@@ -1,0 +1,571 @@
+# Instincts generated from https://github.com/lllyyysss77/agent-zero
+# Generated: 2026-08-01T17:25:43.577Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: agent-zero-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Commit Length
+
+## Action
+
+Keep commit messages concise (~41 characters)
+
+## Evidence
+
+- Average commit message length: 41 chars
+- Based on 20 commits
+
+---
+id: agent-zero-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: agent-zero-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: agent-zero-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: agent-zero-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: agent-zero-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~15x per month
+- Files: webui/components/chat/*, webui/components/chat/input/*, webui/components/sidebar/*
+
+---
+id: agent-zero-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: src/**/*
+
+---
+id: agent-zero-workflow-add-or-update-api-endpoint-with-ui-and-tests
+trigger: "when doing add or update api endpoint with ui and tests"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Workflow Add Or Update Api Endpoint With Ui And Tests
+
+## Action
+
+Follow the add-or-update-api-endpoint-with-ui-and-tests workflow:
+1. Create or update an API handler in api/ (e.g., api/stop.py, api/rename_work_dir_file.py)
+2. Add or update API documentation (e.g., api/*.py.dox.md)
+3. Update or create related helper logic (e.g., helpers/*.py, helpers/*.py.dox.md)
+4. Update frontend UI logic and markup to use the new API (e.g., webui/components/*, webui/js/*, webui/index.html)
+5. Add or update tests to cover the new API and UI behavior (e.g., tests/test_*.py)
+6. Update AGENTS.md or README.md documentation as needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: api/*.py, api/*.py.dox.md, helpers/*.py
+
+---
+id: agent-zero-workflow-add-or-enhance-plugin-or-extension-with-contracts-and-tests
+trigger: "when doing add or enhance plugin or extension with contracts and tests"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Workflow Add Or Enhance Plugin Or Extension With Contracts And Tests
+
+## Action
+
+Follow the add-or-enhance-plugin-or-extension-with-contracts-and-tests workflow:
+1. Create or update plugin/extension directory (e.g., plugins/_plugin_name/)
+2. Add API handlers, helpers, and config files (e.g., api/*.py, helpers/*.py, default_config.yaml, plugin.yaml)
+3. Add or update prompts (e.g., prompts/*.md, plugins/_plugin_name/prompts/*.md)
+4. Implement or update frontend UI components and stores (e.g., webui/components/**, webui/js/**, plugins/_plugin_name/webui/**)
+5. Add or update tests for backend and frontend (e.g., plugins/_plugin_name/tests/test_*.py, tests/test_*.py)
+6. Update documentation (AGENTS.md, README.md, .dox.md) to describe the new or changed plugin/extension
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: plugins/_*/**, plugins/_*/api/*.py, plugins/_*/helpers/*.py
+
+---
+id: agent-zero-workflow-webui-bundling-and-asset-delivery-enhancement
+trigger: "when doing webui bundling and asset delivery enhancement"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Workflow Webui Bundling And Asset Delivery Enhancement
+
+## Action
+
+Follow the webui-bundling-and-asset-delivery-enhancement workflow:
+1. Add or update helper scripts for bundling and serving assets (e.g., helpers/ui_bundler.py, helpers/ui_server.py)
+2. Update or add service worker and asset delivery logic (e.g., webui/sw.js, webui/index.html, webui/js/extensions.js)
+3. Update frontend startup logic to use new asset delivery (e.g., webui/index.html, webui/index.js)
+4. Add or update tests for bundling and service worker behavior (e.g., tests/test_ui_bundler.py, tests/test_webui_service_worker.py, tests/test_webui_startup_assets.py)
+5. Update documentation (.dox.md, AGENTS.md) to reflect the new asset delivery flow
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: helpers/ui_bundler.py, helpers/ui_bundler.py.dox.md, helpers/ui_server.py
+
+---
+id: agent-zero-workflow-add-or-update-feature-with-regression-tests-and-docs
+trigger: "when doing add or update feature with regression tests and docs"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/agent-zero
+---
+
+# Agent Zero Workflow Add Or Update Feature With Regression Tests And Docs
+
+## Action
+
+Follow the add-or-update-feature-with-regression-tests-and-docs workflow:
+1. Implement or update feature logic (backend or frontend)
+2. Add or update regression/unit tests (e.g., tests/test_*.py)
+3. Update documentation (AGENTS.md, README.md, .dox.md) to describe the change
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: helpers/*.py, helpers/*.py.dox.md, webui/js/*.js
+
+---
+id: agent-zero-camelcase-functions
+trigger: "When defining a new function in Python"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Camelcase Functions
+
+## Action
+
+Name the function using camelCase (e.g., fetchData)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+- Consistent with Python files in helpers/
+
+---
+id: agent-zero-pascalcase-classes
+trigger: "When defining a new class in Python"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Pascalcase Classes
+
+## Action
+
+Name the class using PascalCase (e.g., ChatHandler)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: agent-zero-screaming-snake-constants
+trigger: "When defining a constant in Python"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Screaming Snake Constants
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE (e.g., MAX_RETRIES)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: agent-zero-camelcase-files
+trigger: "When creating a new file"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Camelcase Files
+
+## Action
+
+Name the file using camelCase (e.g., chatInput.py)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+
+---
+id: agent-zero-absolute-imports
+trigger: "When importing modules in Python"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Absolute Imports
+
+## Action
+
+Use absolute import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: agent-zero-named-exports
+trigger: "When exporting functions or classes"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Named Exports
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: agent-zero-test-file-pattern
+trigger: "When adding a new test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Test File Pattern
+
+## Action
+
+Name the file using the pattern *.test.ts or test_*.py depending on language
+
+## Evidence
+
+- Pattern in testing.filePattern
+- Examples in tests/test_chat_working_animation.py
+
+---
+id: agent-zero-unit-tests-required
+trigger: "When implementing a new feature or refactoring code"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Unit Tests Required
+
+## Action
+
+Add or update unit tests covering the change
+
+## Evidence
+
+- Pattern in workflows.commitSequence
+- Examples in tests/test_*.py
+
+---
+id: agent-zero-try-catch-error-handling
+trigger: "When handling errors in Python code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Try Catch Error Handling
+
+## Action
+
+Use try-catch (try-except) blocks for error handling
+
+## Evidence
+
+- Pattern in errorHandling.style
+
+---
+id: agent-zero-git-commit-prefix-fix
+trigger: "When fixing a bug or issue"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Git Commit Prefix Fix
+
+## Action
+
+Prefix the commit message with 'fix' (e.g., fix(commands): ...)
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Seen in commit 'fix(commands): show slash picker only for prefixes'
+
+---
+id: agent-zero-git-commit-format-scope
+trigger: "When making a commit related to a specific module or feature"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Git Commit Format Scope
+
+## Action
+
+Include the scope in parentheses after the prefix (e.g., fix(commands): ...)
+
+## Evidence
+
+- Pattern in commits.examples
+- Seen in commit 'fix(commands): show slash picker only for prefixes'
+
+---
+id: agent-zero-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Git Commit Length
+
+## Action
+
+Keep the commit message concise (average ~41 characters)
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: agent-zero-add-api-endpoint-workflow
+trigger: "When adding or updating a backend API feature that is exposed to the frontend"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Add Api Endpoint Workflow
+
+## Action
+
+Create or update API handler, documentation, helpers, frontend logic, tests, and docs as per workflow
+
+## Evidence
+
+- Workflow 'add-or-update-api-endpoint-with-ui-and-tests'
+- Example commits and files
+
+---
+id: agent-zero-add-plugin-workflow
+trigger: "When introducing or enhancing a plugin/extension feature"
+confidence: 0.93
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Add Plugin Workflow
+
+## Action
+
+Create or update plugin directory, API handlers, helpers, config, prompts, UI, tests, and documentation
+
+## Evidence
+
+- Workflow 'add-or-enhance-plugin-or-extension-with-contracts-and-tests'
+- Example commits and files
+
+---
+id: agent-zero-webui-bundling-workflow
+trigger: "When optimizing or extending frontend asset delivery (e.g., bundler, service worker)"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Webui Bundling Workflow
+
+## Action
+
+Update helpers, service worker, frontend startup, tests, and documentation as per workflow
+
+## Evidence
+
+- Workflow 'webui-bundling-and-asset-delivery-enhancement'
+- Example commits and files
+
+---
+id: agent-zero-feature-with-tests-docs-workflow
+trigger: "When adding or refining a feature or fixing a bug"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/agent-zero
+---
+
+# Agent Zero Feature With Tests Docs Workflow
+
+## Action
+
+Implement or update feature logic, add/update regression/unit tests, and update documentation
+
+## Evidence
+
+- Workflow 'add-or-update-feature-with-regression-tests-and-docs'
+- Example commits and files
+
